@@ -1,41 +1,46 @@
 package cl.ufro.dci.ed.model;
 
-public class Antecedente {
-    private String establecimiento;
-    private String policlinico;
-    private String fecha;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Antecedente implements Comparable<Antecedente>{
+
+    private String area;
+    private String detalles;
+    private LocalDate fecha;
     private String hora;
     private String estado;
 
-    public Antecedente(String establecimiento, String policlinico, String fecha, String hora, String estado) {
-        this.establecimiento = establecimiento;
-        this.policlinico = policlinico;
+    public Antecedente(String area, String detalles , LocalDate fecha, String hora, String estado) {
+        this.area = area;
+        this.detalles = detalles;
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.fecha = fecha;
         this.hora = hora;
         this.estado = estado;
     }
 
-    public String getEstablecimiento() {
-        return establecimiento;
+    public String getArea() {
+        return area;
     }
 
-    public void setEstablecimiento(String establecimiento) {
-        this.establecimiento = establecimiento;
+    public void setArea(String area) {
+        this.area = area;
     }
 
-    public String getPoliclinico() {
-        return policlinico;
+    public String getDetalles() {
+        return detalles;
     }
 
-    public void setPoliclinico(String policlinico) {
-        this.policlinico = policlinico;
+    public void setDetalles(String detalles) {
+        this.detalles = detalles;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
@@ -54,4 +59,15 @@ public class Antecedente {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    @Override
+    public int compareTo(Antecedente otroAntecedente) {
+        if(this.getFecha().compareTo(otroAntecedente.getFecha())<0){
+            return -1;
+        }else if(this.getFecha().compareTo(otroAntecedente.getFecha())>0){
+            return 1;
+        }
+        return 0;
+    }
+
 }

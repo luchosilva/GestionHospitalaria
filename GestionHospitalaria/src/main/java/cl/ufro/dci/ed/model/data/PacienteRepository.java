@@ -41,10 +41,4 @@ public class PacienteRepository {
         return this.pacientes.get(id);
     }
 
-    public List<Paciente> sortByEdad(){
-        ArrayList<Paciente> pacientesByEdad = new ArrayList<>(pacientes);
-        Collections.sort(pacientesByEdad);
-        return pacientesByEdad;
-    }
-
 }

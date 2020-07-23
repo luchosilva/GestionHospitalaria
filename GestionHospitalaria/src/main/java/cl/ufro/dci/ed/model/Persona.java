@@ -14,8 +14,6 @@ public abstract class Persona {
     private String nacionalidad;
     private String etnia;
     private ArrayList <Integer> telefonos;
-    private String region;
-    private String comuna;
     private String direccion;
     private double estatura;
     private double peso;
@@ -23,7 +21,7 @@ public abstract class Persona {
     private situacionSentimental situacionSentimental;
     private String ocupacion;
 
-    public Persona(String rut, String nombre, String sexo, int edad, String apellidoPaterno, String apellidoMaterno, String representanteLegal, String nacionalidad, String etnia, String region, String comuna, String direccion, double estatura, double peso, String email, situacionSentimental situacionSentimental, String ocupacion) {
+    public Persona(String rut, String nombre, String sexo, int edad, String apellidoPaterno, String apellidoMaterno, String representanteLegal, String nacionalidad, String etnia, String direccion, double estatura, double peso, String email, situacionSentimental situacionSentimental, String ocupacion) {
         this.rut = rut;
         this.nombre = nombre;
         this.sexo = sexo;
@@ -34,14 +32,29 @@ public abstract class Persona {
         this.nacionalidad = nacionalidad;
         this.etnia = etnia;
         this.telefonos = new ArrayList<>();
-        this.region = region;
-        this.comuna = comuna;
         this.direccion = direccion;
         this.estatura = estatura;
         this.peso = peso;
         this.email = email;
         this.situacionSentimental = situacionSentimental;
         this.ocupacion = ocupacion;
+    }
+
+    public Persona(String rut, String nombre, String sexo, int edad, String apellidoPaterno, String apellidoMaterno, String nacionalidad, String etnia, String direccion, double estatura, double peso, String email, situacionSentimental situacionSentimental) {
+        this.rut = rut;
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.nacionalidad = nacionalidad;
+        this.etnia = etnia;
+        this.telefonos = new ArrayList<>();
+        this.direccion = direccion;
+        this.estatura = estatura;
+        this.peso = peso;
+        this.email = email;
+        this.situacionSentimental = situacionSentimental;
     }
 
     public String getRut() {
@@ -126,22 +139,6 @@ public abstract class Persona {
 
     public void setTelefonos(ArrayList<Integer> telefonos) {
         this.telefonos = telefonos;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getComuna() {
-        return comuna;
-    }
-
-    public void setComuna(String comuna) {
-        this.comuna = comuna;
     }
 
     public String getDireccion() {
